@@ -1,0 +1,67 @@
+/* Sidebar Container */
+.sidebar-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  /* Sidebar styling */
+  .sidebar {
+    width: 250px; /* Fixed sidebar width */
+    background-color: #FFFBE6; /* Background color */
+    box-shadow: 1px 1px 10px 0px #acacac; /* Shadow effect */
+    height: 100%;
+    border-radius: 12px;
+    transition: 0.3s;
+    padding-top: 20px;
+  }
+  
+  /* Sidebar links styling */
+  .sidebar a {
+    color: #333;
+    padding: 12px 15px;
+    display: block;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+  }
+  
+  /* Hover effect on links */
+  .sidebar a:hover {
+    background-color: #c8b49e; /* Hover background color */
+    color: #fff; /* Change text color on hover */
+  }
+  
+  /* Highlight active link */
+  .sidebar a.active {
+    background-color: #6f4f1f; /* Active link background */
+    color: white;
+  }
+  
+  /* Hide links conditionally based on role */
+  [hidden] {
+    display: none !important;
+  }
+  
+  /* Sidebar links margin */
+  .sidebar ul {
+    padding-left: 0;
+  }
+  
+  /* Sidebar Links Margin */
+  .sidebar .mb-1 {
+    margin-bottom: 10px;
+  }
+  
+  /* Divider between customer and admin/vendor links */
+  hr {
+    margin: 10px 0;
+  }
+  
+  /* Responsive behavior */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 200px; /* Slightly narrower sidebar on smaller screens */
+    }
+  }
+  

@@ -1,0 +1,43 @@
+<div class="container my-5">
+  <!-- Offers Table -->
+  <div class="row">
+    <div class="col-12">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover align-middle shadow-sm">
+          <thead class="table-dark">
+            <tr>
+              <th>Offer</th>
+              <th>Restaurant</th>
+              <th *ngIf="role === 'vendor'">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let offer of offers">
+              <td>{{ offer.offer }}</td>
+              <td>{{ offer.restaurantName }}</td>
+              <td *ngIf="role === 'vendor'">
+                <button 
+                  class="btn btn-danger btn-sm" 
+                  (click)="deleteOffer(offer._id)">
+                  Delete
+                </button>
+              </td>
+            </tr>
+            <!-- Show "Add Offer" button for vendors -->
+            <tr *ngIf="role === 'vendor'">
+              <td colspan="2"></td>
+              <td>
+                <button 
+                  type="button" 
+                  class="btn btn-primary btn-sm" 
+                  (click)="goAddOfferPage()">
+                  Add Offer
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

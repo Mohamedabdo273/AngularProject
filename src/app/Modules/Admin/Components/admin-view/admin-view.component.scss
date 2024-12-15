@@ -1,0 +1,25 @@
+/* src/app/components/admin-view/admin-view.component.css */
+.admin-view {
+    padding: 20px;
+    }
+    
+    table {
+    width: 100%;
+    border-collapse: collapse;
+    }
+    
+    th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    }
+    
+    th {
+    background-color: #f2f2f2;
+    }
+    
+    .error {
+    color: red;
+    font-weight: bold;
+    }
+    

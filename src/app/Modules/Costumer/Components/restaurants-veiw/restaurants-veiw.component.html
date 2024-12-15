@@ -1,0 +1,51 @@
+<ng-container *ngIf="filteredRestaurants?.length; else error">
+  <div class="container mt-4">
+    <!-- Filter Section -->
+    <div class="mb-4 filter-container">
+      <label for="categoryFilter" class="form-label filter-label">Food Category</label>
+      <select
+        id="categoryFilter"
+        #selectCat
+        (change)="onCategoryChange(selectCat.value)"
+        class="form-select form-select-lg filter-select"
+      >
+        <option value="All" selected>All</option>
+        <option *ngFor="let cat of foodCategory" [value]="cat">{{ cat }}</option>
+      </select>
+    </div>
+
+    <!-- Restaurants Grid -->
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let restaurant of filteredRestaurants">
+        <div class="card restaurant-card">
+          <img
+            [src]="'http://localhost:9000/uploads/' + restaurant.image"
+            class="card-img-top restaurant-img"
+            alt="{{ restaurant.name }} Image"
+          >
+          <div class="card-body">
+            <h5 class="card-title text-danger restaurant-title">{{ restaurant.name }}</h5>
+            <p class="card-text restaurant-detail"><strong>Food Category:</strong> {{ restaurant.foodCategory }}</p>
+            <p class="card-text restaurant-detail"><strong>Location:</strong> {{ restaurant.location }}</p>
+            <p class="card-text restaurant-detail"><strong>Tables:</strong> {{ restaurant.numberOfTables }}</p>
+            <a
+              class="btn btn-warning restaurant-btn"
+              [routerLink]="['/restaurant', restaurant._id]"
+              role="button"
+            >
+              Details
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #error>
+  <div class="alert alert-danger error-container" role="alert">
+    <h4 class="alert-heading">No Restaurants Found</h4>
+    <p>It seems we couldn't load the restaurants. Please try again later.</p>
+  </div>
+</ng-template>
+

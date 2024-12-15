@@ -1,0 +1,94 @@
+<!-- <div class="row">
+    <div class="col">
+    <p style="        letter-spacing: 3px;
+    font-weight: 500;
+    font-size: x-large;
+    color: #A79277;
+
+">creative agency</p>
+    <p style="       font-size: 70px;
+    font-weight: 600;
+    font-family: 'Rubik';
+    text-transform: uppercase;
+    width: 100%;
+">we are <span style="color: #A79277;
+">creative</span> design agency</p>
+    <hr color="#5BD2B8" style="width: 70%;">
+    <p style="    margin-top: 3px;
+    color: #707070;
+    line-height: 30px;
+    width: 87%;
+    text-transform: inherit;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, soluta deserunt neque sed totam debitis,
+        voluptatem quibusdam iusto ratione unde ut aliquid commodi voluptates facere omnis alias quis, est maiores!
+        </p> -->
+        <br>
+        <div class="container">
+        <div class="row">
+            <div class="col">
+        <div
+            class="table-responsive"
+        >
+            <table
+                class="table table-light table-hover fw-bold text-center align-middle"
+            >
+                <thead class="table-secondary">
+                    <tr>
+                        <th scope="col">Num.</th>
+                        <th scope="col">Restaurant Name</th>
+                        <th scope="col">Food Category</th>
+                        <th scope="col">Locatin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr  *ngFor="let restaurant of restaurants , let i = index" class="table-light">
+                        <td scope="row">{{i + 1}}</td>
+                        <td>
+                            <!-- Use routerLink with the restaurant's ID -->
+                            <a class="text-decoration-none text-dark" [routerLink]="['/restaurant', restaurant._id]" style="cursor: pointer;">
+                              {{ restaurant.name }}
+                            </a>
+                          </td>                        <td>{{restaurant.foodCategory}}</td>
+                        <td>{{restaurant.location}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col"><app-google-maps></app-google-maps></div>
+
+    </div>
+   
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Table row hover effect
+        const rows = document.querySelectorAll('.table-hover tbody tr');
+        rows.forEach(row => {
+          row.addEventListener('mouseenter', () => {
+            row.style.backgroundColor = '#e0f7fa';
+          });
+          row.addEventListener('mouseleave', () => {
+            row.style.backgroundColor = '';
+          });
+        });
+      
+        // Table sorting (basic example)
+        const table = document.querySelector('.table');
+        const headers = table.querySelectorAll('th');
+        headers.forEach((header, index) => {
+          header.addEventListener('click', () => {
+            sortTable(table, index);
+          });
+        });
+      
+        function sortTable(table, column) {
+          const rows = Array.from(table.querySelectorAll('tbody tr'));
+          rows.sort((a, b) => {
+            const cellA = a.children[column].innerText;
+            const cellB = b.children[column].innerText;
+            return cellA.localeCompare(cellB);
+          });
+          rows.forEach(row => table.querySelector('tbody').appendChild(row));
+        }
+      });
+</script>      

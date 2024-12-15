@@ -1,0 +1,99 @@
+<br>
+<a
+  name=""
+  id=""
+  class="btn btn-outline-dark"
+  (click)="back()"
+  role="button"
+  >Back</a
+>
+<form [formGroup]="vendorForm" (ngSubmit)="onSubmit()" class="container mt-5 border p-4 rounded bg-light">
+<h2 class="text-center mb-4">Add Vendor</h2>
+
+<!-- Name Input -->
+<div class="mb-3">
+    <label for="Name" class="form-label">Name</label>
+    <input 
+    type="text" 
+    id="Name" 
+    class="form-control" 
+    formControlName="Name" 
+    placeholder="Enter vendor name">
+    <div *ngIf="vendorForm.controls['Name'].invalid && vendorForm.controls['Name'].touched" class="text-danger">
+    Name is required.
+    </div>
+</div>
+
+<!-- Email Input -->
+<div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input 
+    type="email" 
+    id="email" 
+    class="form-control" 
+    formControlName="email" 
+    placeholder="Enter vendor email">
+    <div *ngIf="vendorForm.controls['email'].invalid && vendorForm.controls['email'].touched" class="text-danger">
+    A valid email is required.
+    </div>
+</div>
+
+<!-- Phone Number Input -->
+<div class="mb-3">
+    <label for="phoneNumber" class="form-label">Phone Number</label>
+    <input 
+    type="text" 
+    id="phoneNumber" 
+    class="form-control" 
+    formControlName="phoneNumber" 
+    placeholder="Enter vendor phone number">
+    <div *ngIf="vendorForm.controls['phoneNumber'].invalid && vendorForm.controls['phoneNumber'].touched" class="text-danger">
+    Phone number is required.
+    </div>
+</div>
+
+<!-- Address Input -->
+<div class="mb-3">
+    <label for="address" class="form-label">Address</label>
+    <input 
+    type="text" 
+    id="address" 
+    class="form-control" 
+    formControlName="address" 
+    placeholder="Enter vendor address">
+    <div *ngIf="vendorForm.controls['address'].invalid && vendorForm.controls['address'].touched" class="text-danger">
+    Address is required.
+    </div>
+</div>
+
+<!-- Role Select -->
+<div class="mb-3">
+    <label for="role" class="form-label">Role</label>
+    <select id="role" class="form-select" formControlName="role">
+    <option value="">Select Role</option>
+    <option value="vendor">Vendor</option>
+    <option value="admin">Admin</option>
+    <option value="customer">Customer</option>
+    </select>
+    <div *ngIf="vendorForm.controls['role'].invalid && vendorForm.controls['role'].touched" class="text-danger">
+    Role is required.
+    </div>
+</div>
+
+<!-- Password Input -->
+<div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input 
+    type="password" 
+    id="password" 
+    class="form-control" 
+    formControlName="password" 
+    placeholder="Enter password">
+    <div *ngIf="vendorForm.controls['password'].invalid && vendorForm.controls['password'].touched" class="text-danger">
+    Password is required and must be at least 6 characters.
+    </div>
+</div>
+
+<!-- Submit Button -->
+<button type="submit" class="btn btn-primary w-100" [disabled]="vendorForm.invalid">Add Vendor</button>
+</form>

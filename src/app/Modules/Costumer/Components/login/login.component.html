@@ -1,0 +1,82 @@
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="card p-4">
+    <h2 class="text-center mb-4">Login</h2>
+
+    <form (ngSubmit)="login()">
+      <!-- Email Field -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          placeholder="Enter your email"
+          [(ngModel)]="loginData.email"
+          name="email"
+          required
+        />
+      </div>
+
+      <!-- Password Field -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          placeholder="Enter your password"
+          [(ngModel)]="loginData.password"
+          name="password"
+          required
+        />
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-dark w-100">Login</button>
+    </form>
+
+    <div *ngIf="responseMessage" class="mt-3 alert alert-info">
+      <strong>Response:</strong> {{ responseMessage }}
+    </div>
+
+    <div class="text-center mt-3">
+      <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+    </div>
+  </div>
+</div>
+<script>
+  // Assuming Angular is in use, replace this with the Angular component logic
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.querySelector('form');
+  const responseMessageElement = document.querySelector('.alert');
+  const loginButton = document.querySelector('button');
+  
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();  // Prevent the default form submission behavior
+
+    // Simulate a simple login check (you can replace this with actual logic)
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    if (email === "" || password === "") {
+      responseMessageElement.textContent = "Please fill in both fields!";
+      responseMessageElement.style.display = "block";
+    } else {
+      responseMessageElement.textContent = "Logging in...";
+      responseMessageElement.style.display = "block";
+
+      // Simulate a delay for the login process
+      setTimeout(() => {
+        // Simulate success response
+        responseMessageElement.textContent = "Login successful!";
+        responseMessageElement.style.backgroundColor = "#4CAF50"; // Green color for success
+        responseMessageElement.style.display = "block";
+
+        // You can redirect to the dashboard or another page here
+        window.location.href = "/dashboard";
+      }, 2000); // Simulated delay
+    }
+  });
+});
+
+</script>

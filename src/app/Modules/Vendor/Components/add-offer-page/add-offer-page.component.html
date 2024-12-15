@@ -1,0 +1,13 @@
+<h1>Add New Offer</h1>
+<form [formGroup]="offerForm" (ngSubmit)="saveOffer()" class="offer-form">
+  <div class="form-group">
+    <label for="offer">Offer Description:</label>
+    <input id="offer" formControlName="offer" class="form-input" />
+    <div *ngIf="offerForm.get('offer')?.touched && offerForm.get('offer')?.invalid" class="error-message">
+      <small *ngIf="offerForm.get('offer')?.errors?.['required']">Offer is required.</small>
+      <small *ngIf="offerForm.get('offer')?.errors?.['minlength']">Offer must be at least 5 characters.</small>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="offerForm.invalid" class="submit-btn">Save</button>
+</form>

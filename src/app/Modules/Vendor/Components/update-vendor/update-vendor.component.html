@@ -1,0 +1,69 @@
+<form [formGroup]="updateVendorForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+    <div class="mb-3">
+      <label for="Name" class="form-label">Vendor Name</label>
+      <input 
+        type="text" 
+        id="Name" 
+        formControlName="Name" 
+        class="form-control" 
+        [class.is-invalid]="updateVendorForm.get('Name')?.invalid && updateVendorForm.get('Name')?.touched"
+        placeholder="Enter vendor name" 
+        required>
+      <div class="invalid-feedback">Vendor name is required.</div>
+    </div>
+  
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input 
+        type="email" 
+        id="email" 
+        formControlName="email" 
+        class="form-control" 
+        [class.is-invalid]="updateVendorForm.get('email')?.invalid && updateVendorForm.get('email')?.touched"
+        placeholder="Enter email address" 
+        required>
+      <div class="invalid-feedback">A valid email is required.</div>
+    </div>
+  
+    <div class="mb-3">
+      <label for="phoneNumber" class="form-label">Phone Number</label>
+      <input 
+        type="text" 
+        id="phoneNumber" 
+        formControlName="phoneNumber" 
+        class="form-control" 
+        [class.is-invalid]="updateVendorForm.get('phoneNumber')?.invalid && updateVendorForm.get('phoneNumber')?.touched"
+        placeholder="Enter phone number">
+      <div class="invalid-feedback">A valid 10-digit phone number is required.</div>
+    </div>
+  
+    <!-- <div class="mb-3">
+      <label for="address" class="form-label">Address</label>
+      <textarea 
+        id="address" 
+        formControlName="address" 
+        class="form-control" 
+        [class.is-invalid]="updateVendorForm.get('address')?.invalid && updateVendorForm.get('address')?.touched"
+        placeholder="Enter address" 
+        rows="3" 
+        required></textarea>
+      <div class="invalid-feedback">Address is required.</div>
+    </div> -->
+  
+    <!-- <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input 
+        type="password" 
+        id="password" 
+        formControlName="password" 
+        class="form-control" 
+        [class.is-invalid]="updateVendorForm.get('password')?.invalid && updateVendorForm.get('password')?.touched"
+        placeholder="Enter password" 
+        required>
+      <div class="invalid-feedback">Password must be at least 6 characters long.</div>
+    </div> -->
+  
+    <div class="d-flex justify-content-end">
+      <button type="submit" class="btn btn-primary">Update Vendor</button>
+    </div>
+  </form>

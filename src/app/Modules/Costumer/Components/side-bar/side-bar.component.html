@@ -1,0 +1,70 @@
+<div class="sidebar-container">
+    <div class="sidebar">
+      <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+        <span class="fs-5 fw-semibold">Sidebar</span>
+      </a>
+      <ul class="list-unstyled ps-0">
+        <!-- Admin Links -->
+        <li class="mb-1" [hidden]="role!='admin'">
+          <a class="text-decoration-none link-dark" routerLink="/Home">Dashboard</a>
+        </li>
+        <li class="mb-1" [hidden]="role!='admin'">
+          <a class="text-decoration-none link-dark" routerLink="/reservation/viewReservations">View Reservations</a>
+        </li>
+        <li class="mb-1" [hidden]="role!='admin'">
+          <a class="text-decoration-none link-dark" routerLink="/addVendor">Add Vendor</a>
+        </li>
+        <li class="mb-1" [hidden]="role!='admin'">
+          <a class="text-decoration-none link-dark" routerLink="/admin">Show Vendor</a>
+        </li>
+        <!-- Vendor Links -->
+        <li class="mb-1" [hidden]="role!='vendor'">
+          <a class="text-decoration-none link-dark" routerLink="/vendorRestaurant">Restaurants</a>
+        </li>
+        <li class="mb-1" [hidden]="role!='vendor'">
+          <a class="text-decoration-none link-dark" routerLink="/addRestaurant">Add Restaurant</a>
+        </li>
+        <li class="mb-1" [hidden]="role!='vendor'">
+          <a class="text-decoration-none link-dark" routerLink="/UpdateVendor">Update Profile</a>
+        </li>
+        <!-- Customer Links -->
+        <hr>
+        <li class="mb-1" [hidden]="role!='customer'">
+          <a class="text-decoration-none link-dark" routerLink="/offer">Offers</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script>
+   document.addEventListener("DOMContentLoaded", function () {
+  const sidebar = document.querySelector('.sidebar');
+  const role = 'admin';  // Set the role dynamically from your app (this can be set through Angular, for example)
+
+  // Function to show or hide sidebar links based on the user's role
+  function updateSidebarLinks() {
+    const links = sidebar.querySelectorAll('li[hidden]');
+    links.forEach((link) => {
+      const linkRole = link.getAttribute('role');
+      if (linkRole && linkRole !== role) {
+        link.setAttribute('hidden', true);  // Hide link if role doesn't match
+      } else {
+        link.removeAttribute('hidden');  // Show link if role matches
+      }
+    });
+  }
+
+  // Call the function to update the sidebar based on the user's role
+  updateSidebarLinks();
+
+  // Optionally, if the sidebar needs to toggle (open/close) based on screen size or user interaction:
+  const sidebarToggleButton = document.querySelector('.sidebar-toggle-btn'); // Define the button for toggling
+  sidebarToggleButton.addEventListener('click', () => {
+    if (sidebar.style.width === '0px') {
+      sidebar.style.width = '250px';  // Show sidebar
+    } else {
+      sidebar.style.width = '0px';  // Hide sidebar
+    }
+  });
+});
+ 
+  </script>

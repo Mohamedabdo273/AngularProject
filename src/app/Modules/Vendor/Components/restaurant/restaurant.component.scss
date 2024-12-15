@@ -1,0 +1,43 @@
+/* src/styles.css or component-specific CSS file */
+.card {
+    background-color: #fdfdfd;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-img-top {
+    border-bottom: 1px solid #ddd;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .card-footer {
+    background-color: #fafafa;
+    border-top: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+  }
+  
+  .btn {
+    font-size: 0.9rem;
+  }
+  
+  .loading-spinner {
+    font-size: 1.2rem;
+  }
+  
+  .alert {
+    font-size: 1.1rem;
+    padding: 1.5rem;
+  }
+  

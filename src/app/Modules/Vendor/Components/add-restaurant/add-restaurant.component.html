@@ -1,0 +1,148 @@
+<form [formGroup]="addRestaurantForm" (ngSubmit)="onSubmit()" class="form-container">
+  <h2>Add New Restaurant</h2>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name" type="text" />
+  </div>
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <textarea id="description" formControlName="description"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="image">Image:</label>
+    <input id="image" type="file" (change)="onFileChange($event)" />
+  </div>
+  <div class="form-group">
+    <label for="location">Location:</label>
+    <input id="location" formControlName="location" type="text" />
+  </div>
+  <div class="form-group">
+    <label for="latitude">Latitude:</label>
+    <input id="latitude" formControlName="latitude" type="text" />
+  </div>
+  <div class="form-group">
+    <label for="longitude">Longitude:</label>
+    <input id="longitude" formControlName="longitude" type="text" />
+  </div>
+  <div class="form-group">
+    <label for="numberOfTables">Number of Tables:</label>
+    <input id="numberOfTables" formControlName="numberOfTables" type="number" />
+  </div>
+  <div class="form-group">
+    <label for="foodCategory">Category:</label>
+    <select formControlName="foodCategory" id="foodCategory">
+      <option *ngFor="let category of categories" [value]="category.value">
+        {{ category.value }}
+      </option>
+    </select>
+  </div>  
+  <div class="form-group">
+    <label for="rating">Rating:</label>
+    <input id="rating" formControlName="rating" type="number" min="0" max="5" />
+  </div>
+  <div class="form-actions">
+    <button type="submit">Add Restaurant</button>
+  </div>
+</form>
+<style>
+  /* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Form Container */
+.form-container {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  transition: transform 0.2s ease;
+}
+
+.form-container:hover {
+  transform: translateY(-3px);
+}
+
+/* Form Header */
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Style for each input group */
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-size: 16px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Textarea Styles */
+.form-group textarea {
+  height: 100px;
+  resize: none;
+}
+
+/* Button */
+.form-actions {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.form-actions button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.form-actions button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 15px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 14px;
+  }
+}
+
+</style>

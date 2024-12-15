@@ -1,0 +1,30 @@
+<form [formGroup]="timeSlotForm" (ngSubmit)="onSubmit()" class="container mt-4">
+    <h2 class="mb-4">Add Time Slots</h2>
+  
+    <!-- FormArray Container -->
+    <div formArrayName="timeslots">
+      <!-- Loop Through FormArray Controls -->
+      <div
+        *ngFor="let slot of timeslots.controls; let i = index"
+        [formGroupName]="i"
+        class="row mb-3"
+      >
+        <div class="col-md-6">
+          <label for="time{{ i }}" class="form-label">
+            Start Time (Slot {{ i + 1 }})
+          </label>
+          <input
+            type="time"
+            id="time{{ i }}"
+            class="form-control"
+            formControlName="time"
+          />
+        </div>
+      </div>
+    </div>
+  
+    <button type="submit" class="btn btn-primary mt-3" [disabled]="timeSlotForm.invalid">
+      Submit Time Slots
+    </button>
+  </form>
+  

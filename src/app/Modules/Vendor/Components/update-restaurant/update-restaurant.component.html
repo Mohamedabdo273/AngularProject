@@ -1,0 +1,55 @@
+<form [formGroup]="updateRestaurantForm" (ngSubmit)="onSubmit()" class="container mt-4">
+  <h2 class="text-center mb-4">Update Restaurant</h2>
+
+  <div class="mb-3">
+    <label for="name" class="form-label">Restaurant Name</label>
+    <input id="name" formControlName="name" class="form-control" placeholder="Enter restaurant name" />
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea id="description" formControlName="description" class="form-control" rows="3" placeholder="Enter description"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="location" class="form-label">Location</label>
+    <input id="location" formControlName="location" class="form-control" placeholder="Enter location" />
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label for="latitude" class="form-label">Latitude</label>
+      <input id="latitude" formControlName="latitude" type="number" class="form-control" placeholder="Enter latitude" />
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="longitude" class="form-label">Longitude</label>
+      <input id="longitude" formControlName="longitude" type="number" class="form-control" placeholder="Enter longitude" />
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="foodCategory" class="form-label">Food Category</label>
+    <select id="foodCategory" formControlName="foodCategory" class="form-select">
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label for="numberOfTables" class="form-label">Number of Tables</label>
+      <input id="numberOfTables" formControlName="numberOfTables" type="number" class="form-control" placeholder="Enter number of tables" />
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="rating" class="form-label">Rating</label>
+      <input id="rating" formControlName="rating" type="number" class="form-control" step="0.1" min="0" max="5" placeholder="Enter rating" />
+    </div>
+  </div>
+
+  <!-- Uncomment if you add image upload functionality -->
+  <!-- <div class="mb-3">
+    <label for="image" class="form-label">Image</label>
+    <input id="image" formControlName="image" type="file" class="form-control" (change)="onFileChange($event)" />
+  </div> -->
+
+  <button type="submit" class="btn btn-primary w-100" [disabled]="!updateRestaurantForm.valid">Update Restaurant</button>
+</form>

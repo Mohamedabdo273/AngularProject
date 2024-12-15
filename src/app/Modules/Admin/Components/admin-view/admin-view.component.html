@@ -1,0 +1,48 @@
+<div class="admin-view">
+    <h1>Vendors List</h1>
+    
+    <!-- Show loading indicator while data is being fetched -->
+    <div *ngIf="loading">Loading...</div>
+    
+    <!-- Show error message if there's an issue -->
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    
+    <!-- Show the list of vendors -->
+    <div *ngIf="!loading && !errorMessage">
+        <table *ngIf="vendors.length > 0">
+        <thead>
+            <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let vendor of vendors">
+            <td>{{ vendor.Name }}</td>
+            <td>{{ vendor.email }}</td>
+            <td>{{ vendor.phoneNumber }}</td>
+            <td><button
+                type="button"
+                class="btn btn-danger"
+               (click)="deleteVendor(vendor._id)"
+            >
+                Delete
+            </button>
+            </td>
+            </tr>
+        </tbody>
+        </table>
+        <div *ngIf="vendors.length === 0">No vendors found.</div>
+    </div>
+    <button
+        type="button"
+        class="btn btn-primary"
+        routerLink="/addVendor"
+    >
+        Add Vendor
+    </button>
+    
+    </div>
+    

@@ -1,0 +1,87 @@
+/* General Styles */
+body {
+  font-family: 'Rubik', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+/* Typography */
+p {
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  color: #333;
+}
+
+/* Styling for the Creative Agency Section */
+.row .col p:first-child {
+  letter-spacing: 3px;
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: #A79277;
+}
+
+.row .col p:nth-child(2) {
+  font-size: 3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #333;
+}
+
+.row .col p:nth-child(2) span {
+  color: #A79277;
+}
+
+hr {
+  width: 70%;
+  border: none;
+  border-top: 3px solid #5BD2B8;
+  margin: 20px 0;
+}
+
+.row .col p:last-child {
+  color: #707070;
+  line-height: 1.8;
+  margin-top: 10px;
+}
+
+/* Table Styles */
+.table-responsive {
+  margin: 20px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 12px;
+}
+
+.table thead {
+  background-color: #5BD2B8;
+  color: white;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.text-dark {
+  color: #333 !important;
+}
+
+/* Google Maps Component */
+app-google-maps {
+  display: block;
+  height: 400px;
+  margin-top: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

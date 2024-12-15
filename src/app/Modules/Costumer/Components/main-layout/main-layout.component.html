@@ -1,0 +1,16 @@
+<app-header></app-header>
+
+<div class="row">
+  <!-- Sidebar is conditionally displayed based on isVisible -->
+  <app-side-bar 
+    *ngIf="isVisible" 
+    class="col-12 col-md-2">
+  </app-side-bar>
+
+  <!-- Main content takes the entire row when the sidebar is hidden -->
+  <div 
+    class="col-12" 
+    [class.col-md-10]="isVisible">
+    <router-outlet></router-outlet>
+  </div>
+</div>

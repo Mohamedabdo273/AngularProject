@@ -1,0 +1,13 @@
+<google-map
+  [options]="options"
+  height="500px"
+  width="100%"
+>
+  <map-marker
+    *ngFor="let marker of markers"
+    [position]="marker.position"
+    [label]="marker.label.text"
+  >
+    <map-info-window>{{ marker.label.text }}</map-info-window> <!-- Display label text in the info window -->
+  </map-marker>
+</google-map>

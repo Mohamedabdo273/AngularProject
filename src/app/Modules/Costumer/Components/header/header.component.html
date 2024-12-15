@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-sm" style="background-color: #A79277;">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">Reserve-It</a>
+    <button
+      class="navbar-toggler d-lg-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon" style="background-color: #6f4f1f;"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a [hidden]="role != 'vendor'" class="nav-link" routerLink="/vendorRestaurant">Restaurants</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [hidden]="role == 'vendor'" routerLink="/restaurants">Restaurants</a>
+        </li>
+        <li class="nav-item" *ngIf="role !== 'vendor'">
+          <a class="nav-link" routerLink="/offer">Offers</a>
+        </li>
+        <li class="nav-item" [hidden]="isUserLogged">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item" [hidden]="!isUserLogged">
+          <button class="btn btn-danger" (click)="logOut()">Logout</button>
+        </li>
+      </ul>
+      <form class="d-flex my-2 my-lg-0">
+        <input
+          class="form-control me-sm-2"
+          type="text"
+          placeholder="Search"
+          style="background-color: #f1e8d1; color: #6f4f1f; border: 1px solid #c8b49e;"
+        />
+        <button
+          class="btn btn-dark my-2 my-sm-0"
+          type="submit"
+          style="background-color: #6f4f1f; border: none;"
+        >
+          Search
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 10) {
+      navbar.classList.add('shadow-sm');
+    } else {
+      navbar.classList.remove('shadow-sm');
+    }
+  });
+</script>
